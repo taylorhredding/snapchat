@@ -7,11 +7,13 @@
 //
 
 import UIKit
+import Firebase
 
 class SelectUserViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     @IBOutlet weak var tableView: UITableView!
     
+    var users : [User] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,15 +21,55 @@ class SelectUserViewController: UIViewController, UITableViewDataSource, UITable
         
         self.tableView.dataSource = self
         self.tableView.delegate = self
-
-        // Do any additional setup after loading the view.
+        
+        
+        Database.database().reference().child("users").observe(DataEventType.childAdded, with: { (snapshot) in
+            print(snapshot)
+            
+            let user = User()
+            let snapshotValue = snapshot.value as! NSDictionary
+            
+            
+            user.email = snapshotValue["email"] as! String
+            user.uid = snapshot.key
+            
+            self.users.append(user)
+            self.tableView.reloadData()
+            
+        })
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        return users.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        let cell = UITableViewCell()
+        
+        let user = users[indexPath.row]
+        
+        cell.textLabel?.text = user.email
+        
+        return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let user = users[indexPath.row]
+        
+        Database.database().reference().child("users").child(user.uid).child("snaps").childByAutoId().setValue("testing 123")
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 }
