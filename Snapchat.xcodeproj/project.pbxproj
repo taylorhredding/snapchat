@@ -18,6 +18,8 @@
 		F3C45A7B1F01D8E800DDF13D /* PictureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C45A7A1F01D8E800DDF13D /* PictureViewController.swift */; };
 		F3C45A7D1F02B2C500DDF13D /* SelectUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C45A7C1F02B2C500DDF13D /* SelectUserViewController.swift */; };
 		F3C45A7F1F03269100DDF13D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C45A7E1F03269100DDF13D /* User.swift */; };
+		F3C45A831F04003500DDF13D /* Snap.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C45A821F04003500DDF13D /* Snap.swift */; };
+		F3C45A851F0403D300DDF13D /* ViewSnapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C45A841F0403D300DDF13D /* ViewSnapViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +38,8 @@
 		F3C45A7A1F01D8E800DDF13D /* PictureViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PictureViewController.swift; sourceTree = "<group>"; };
 		F3C45A7C1F02B2C500DDF13D /* SelectUserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectUserViewController.swift; sourceTree = "<group>"; };
 		F3C45A7E1F03269100DDF13D /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		F3C45A821F04003500DDF13D /* Snap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Snap.swift; sourceTree = "<group>"; };
+		F3C45A841F0403D300DDF13D /* ViewSnapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewSnapViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,8 +94,8 @@
 			children = (
 				F3C45A801F0326BB00DDF13D /* ViewControllers */,
 				F3C45A811F0326EA00DDF13D /* Models */,
-				F3C45A641F015BBA00DDF13D /* AppDelegate.swift */,
 				F3C45A681F015BBA00DDF13D /* Main.storyboard */,
+				F3C45A641F015BBA00DDF13D /* AppDelegate.swift */,
 				F3C45A6B1F015BBA00DDF13D /* Assets.xcassets */,
 				F3C45A6D1F015BBA00DDF13D /* LaunchScreen.storyboard */,
 				F3C45A701F015BBA00DDF13D /* Info.plist */,
@@ -107,6 +111,7 @@
 				F3C45A781F01D4D000DDF13D /* SnapsViewController.swift */,
 				F3C45A7A1F01D8E800DDF13D /* PictureViewController.swift */,
 				F3C45A7C1F02B2C500DDF13D /* SelectUserViewController.swift */,
+				F3C45A841F0403D300DDF13D /* ViewSnapViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -115,6 +120,7 @@
 			isa = PBXGroup;
 			children = (
 				F3C45A7E1F03269100DDF13D /* User.swift */,
+				F3C45A821F04003500DDF13D /* Snap.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -246,7 +252,9 @@
 				F3C45A671F015BBA00DDF13D /* SignInViewController.swift in Sources */,
 				F3C45A7B1F01D8E800DDF13D /* PictureViewController.swift in Sources */,
 				F3C45A7F1F03269100DDF13D /* User.swift in Sources */,
+				F3C45A851F0403D300DDF13D /* ViewSnapViewController.swift in Sources */,
 				F3C45A7D1F02B2C500DDF13D /* SelectUserViewController.swift in Sources */,
+				F3C45A831F04003500DDF13D /* Snap.swift in Sources */,
 				F3C45A651F015BBA00DDF13D /* AppDelegate.swift in Sources */,
 				F3C45A791F01D4D000DDF13D /* SnapsViewController.swift in Sources */,
 			);

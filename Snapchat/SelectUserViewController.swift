@@ -15,6 +15,9 @@ class SelectUserViewController: UIViewController, UITableViewDataSource, UITable
     
     var users : [User] = []
     
+    var imageURL = ""
+    var descrip = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -57,7 +60,11 @@ class SelectUserViewController: UIViewController, UITableViewDataSource, UITable
         
         let user = users[indexPath.row]
         
-        Database.database().reference().child("users").child(user.uid).child("snaps").childByAutoId().setValue("testing 123")
+        let snap = ["from":Auth.auth().currentUser!.email, "description":descrip, "imageURL":imageURL]
+        
+        Database.database().reference().child("users").child(user.uid).child("snaps").childByAutoId().setValue(snap)
+        
+        navigationController!.popToRootViewController(animated: true)
     }
     
     
