@@ -31,23 +31,58 @@ class SnapsViewController: UIViewController, UITableViewDelegate, UITableViewDat
             snap.imageURL = snapshotValue["imageURL"] as! String
             snap.from = snapshotValue["from"] as! String
             snap.descrip = snapshotValue["description"] as! String
+            snap.key = snapshot.key
+            snap.uuid = snapshotValue["uuid"] as! String
 
             
             self.snaps.append(snap)
             self.tableView.reloadData()
         })
+        
+        Database.database().reference().child("users").child(Auth.auth().currentUser!.uid).child("snaps").observe(DataEventType.childRemoved, with: { (snapshot) in
+            print(snapshot)
+            
+            var index = 0
+            
+            for snap in self.snaps {
+                
+                if snap.key == snapshot.key{
+                    
+                    self.snaps.remove(at: index)
+                }
+                
+                index += 1
+            }
+            
+            self.tableView.reloadData()
+            
+        })
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        if snaps.count == 0 {
+            return 1
+        }else{
+        
         return snaps.count
+            
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = UITableViewCell()
+        
+        if snaps.count == 0 {
+            
+             cell.textLabel?.text = "No new snaps 😭"
+            
+        }else{
         let snap = snaps[indexPath.row]
         
         cell.textLabel?.text = snap.from
+        }
         
         return cell
     }
